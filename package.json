@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "format": "prettier --write --ignore-unknown"
+    "format": "prettier --write --ignore-unknown '**/*.{js,jsx,ts,tsx,css,md,json}'"
   },
   "dependencies": {
     "antd": "^4.20.1",

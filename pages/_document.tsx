@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
+import type { NextPage } from 'next'
 
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript } from 'next/document'
 
 const Document: NextPage = () => {
   return (
@@ -22,7 +22,7 @@ const Document: NextPage = () => {
         <NextScript />
       </body>
     </Html>
-  );
-};
+  )
+}
 
-export default Document;
+export default Document
