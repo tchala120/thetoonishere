@@ -1,9 +1,18 @@
+import Head from 'next/head'
 import styled from 'styled-components'
 
 import type { FCWithChildren } from 'types'
 
 const HomeLayout: FCWithChildren = ({ children }) => {
-  return <HomeContainer>{children}</HomeContainer>
+  return (
+    <HomeContainer>
+      <Head>
+        <title>👋 Hi folk! | thetoonishere</title>
+        <link rel="shortcut icon" href="/favicon.png" />
+      </Head>
+      {children}
+    </HomeContainer>
+  )
 }
 
 export default HomeLayout
