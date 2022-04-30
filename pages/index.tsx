@@ -1,5 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next'
 
+import Image from 'next/image'
+
 import HomeLayout from 'layouts/HomeLayout'
 
 import Hero from 'components/Hero'
@@ -19,6 +21,8 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
   return (
     <HomeLayout>
+      <Image src="/favicon.webp" alt="Panupong" width={64} height={64} />
+
       <Hero />
 
       <About />
