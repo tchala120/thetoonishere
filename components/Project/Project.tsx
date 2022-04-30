@@ -6,8 +6,7 @@ const Project: FC = () => {
   return (
     <Section>
       <Section.Title>My previous works</Section.Title>
-
-      <h1>Coming Soon</h1>
+      Coming Soon
     </Section>
   )
 }
