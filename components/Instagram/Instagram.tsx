@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 
+import useSWR from 'swr'
 import { Col, Row, Space } from 'antd'
 import { InstagramOutlined } from '@ant-design/icons'
 
@@ -7,13 +8,18 @@ import Section from 'components/Section'
 import NotFoundContent from 'components/NotFoundContent'
 import InstagramPostItem from './InstagramPostItem'
 
-import type { InstagramAPIResponse } from 'pages/api/list-instagram-posts'
+import type {
+  InstagramAPIResponse,
+  ListInstagramPostsAPIPayload,
+} from 'pages/api/list-instagram-posts'
 
-interface InstagramProps {
-  listInstagramPosts: InstagramAPIResponse[]
-}
+const Instagram: FC = () => {
+  const { data, error } = useSWR<ListInstagramPostsAPIPayload>(
+    '/api/list-instagram-posts'
+  )
 
-const Instagram: FC<InstagramProps> = ({ listInstagramPosts }) => {
+  const listInstagramPosts = data?.listInstagramPosts || []
+
   return (
     <Section>
       <Section.Title>
@@ -36,7 +42,7 @@ const Instagram: FC<InstagramProps> = ({ listInstagramPosts }) => {
   )
 
   function renderListInstagramPosts() {
-    if (listInstagramPosts.length === 0) {
+    if (error || listInstagramPosts.length === 0) {
       return (
         <Col span={24}>
           <NotFoundContent title="Cannot display shots right now.">

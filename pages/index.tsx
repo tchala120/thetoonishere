@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { NextPage } from 'next'
 
 import HomeLayout from 'layouts/HomeLayout'
 
@@ -7,23 +7,14 @@ import About from 'components/About'
 import Instagram from 'components/Instagram'
 import Project from 'components/Project'
 
-import {
-  getListInstagramPosts,
-  InstagramAPIResponse,
-} from './api/list-instagram-posts'
-
-interface HomeProps {
-  listInstagramPosts: InstagramAPIResponse[]
-}
-
-const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
+const Home: NextPage = () => {
   return (
     <HomeLayout>
       <Hero />
 
       <About />
 
-      <Instagram listInstagramPosts={listInstagramPosts} />
+      <Instagram />
 
       <Project />
     </HomeLayout>
@@ -31,13 +22,3 @@ const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
 }
 
 export default Home
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const listInstagramPosts = await getListInstagramPosts()
-
-  return {
-    props: {
-      listInstagramPosts,
-    },
-  }
-}
