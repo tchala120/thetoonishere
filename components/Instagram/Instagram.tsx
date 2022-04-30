@@ -30,7 +30,7 @@ const Instagram: FC = () => {
             rel="noopener noreferrer"
           >
             <Button
-              icon={<InstagramOutlined style={{ fontSize: 36 }} />}
+              icon={<InstagramOutlined style={{ fontSize: 32 }} />}
               type="text"
             />
           </a>
