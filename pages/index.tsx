@@ -1,64 +1,36 @@
 import type { NextPage } from 'next'
 
-import { Button, Space } from 'antd'
-import {
-  GithubOutlined,
-  InstagramOutlined,
-  LinkedinOutlined,
-} from '@ant-design/icons'
+import { Space } from 'antd'
+import styled from 'styled-components'
 
 import HomeLayout from 'layouts/HomeLayout'
 
 import WaveAnimation from 'components/WaveAnimation'
+import Instagram from 'components/Instagram'
+import Section from 'components/Section'
 
 const Home: NextPage = () => {
-  const links = [
-    {
-      id: 0,
-      to: 'https://www.linkedin.com/in/panupongtipjoi/',
-      Icon: LinkedinOutlined,
-    },
-    {
-      id: 1,
-      to: 'https://github.com/tchala120',
-      Icon: GithubOutlined,
-    },
-    {
-      id: 2,
-      to: 'https://www.instagram.com/itstoon.p/',
-      Icon: InstagramOutlined,
-    },
-  ]
-
   return (
     <HomeLayout>
-      <WaveAnimation style={{ fontSize: 36 }}>👋</WaveAnimation>
-
-      <h1>
-        Hi folk!{' '}
-        <a
-          href="https://twitter.com/thetoonishere"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @thetoonishere
-        </a>
-      </h1>
-
-      <Space>
-        {links.map(({ id, to, Icon }) => (
-          <Button
-            key={id}
-            icon={
-              <a href={to} target="_blank" rel="noopener noreferrer">
-                <Icon style={{ fontSize: 24 }} />
-              </a>
-            }
-          />
-        ))}
+      <Space size="large">
+        <WaveAnimation style={{ fontSize: 80 }}>👋</WaveAnimation>
+        <GreetingText>Hi!</GreetingText>
       </Space>
+
+      <Section>
+        My name is <strong>Toon</strong>, and here is my portfolio, which
+        showcases everything I&apos;ve done in my spare time. My ambition is to
+        work as a website developer since I enjoy coding.
+      </Section>
+
+      <Instagram />
     </HomeLayout>
   )
 }
 
 export default Home
+
+const GreetingText = styled.span`
+  font-size: 80px;
+  font-weight: 900;
+`
