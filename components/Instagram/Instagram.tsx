@@ -1,24 +1,26 @@
 import type { FC } from 'react'
 
+import axios from 'axios'
 import useSWR from 'swr'
 import { Col, Row, Space } from 'antd'
 import { InstagramOutlined } from '@ant-design/icons'
 
 import Section from 'components/Section'
 import NotFoundContent from 'components/NotFoundContent'
+import LoadingIcon from 'components/LoadingIcon'
 import InstagramPostItem from './InstagramPostItem'
 
-import type {
-  InstagramAPIResponse,
-  ListInstagramPostsAPIPayload,
-} from 'pages/api/list-instagram-posts'
+import type { ListInstagramPostsAPIPayload } from 'pages/api/list-instagram-posts'
 
 const Instagram: FC = () => {
-  const { data, error } = useSWR<ListInstagramPostsAPIPayload>(
-    '/api/list-instagram-posts'
+  const { data, error } = useSWR<{ data: ListInstagramPostsAPIPayload }>(
+    '/api/list-instagram-posts',
+    (key) => axios.get(key)
   )
 
-  const listInstagramPosts = data?.listInstagramPosts || []
+  const loading = data == null && error == null
+
+  const listInstagramPosts = data?.data.listInstagramPosts || []
 
   return (
     <Section>
@@ -36,7 +38,7 @@ const Instagram: FC = () => {
       </Section.Title>
 
       <Row gutter={[32, 32]} style={{ marginBottom: 24 }}>
-        {renderListInstagramPosts()}
+        {loading ? <LoadingIcon /> : renderListInstagramPosts()}
       </Row>
     </Section>
   )
