@@ -20,6 +20,8 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
+  console.log('List instagram posts', listInstagramPosts)
+
   return (
     <HomeLayout>
       <Space>
