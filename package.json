@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@next/bundle-analyzer": "^12.1.5",
     "antd": "^4.20.1",
     "axios": "^0.27.2",
     "dayjs": "^1.11.1",
