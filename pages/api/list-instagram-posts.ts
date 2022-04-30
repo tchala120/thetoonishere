@@ -19,13 +19,13 @@ const handler = async (_: NextApiRequest, res: NextApiResponse) => {
       `https://graph.instagram.com/me/media?fields=id,media_url,permalink,timestamp&access_token=${process.env.INSTAGRAM_TOKEN}`
     )
 
-    res.json({
+    res.status(200).json({
       status: 200,
       success: true,
       listInstagramPosts: response.data.data.slice(0, 9),
     })
   } catch (error) {
-    res.json({
+    res.status(500).json({
       status: 500,
       success: false,
       error,
