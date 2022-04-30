@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-import { Button, Col, Row, Space } from 'antd'
+import { Col, Row, Space } from 'antd'
 import { InstagramOutlined } from '@ant-design/icons'
 
 import Section from 'components/Section'
@@ -24,10 +24,7 @@ const Instagram: FC<InstagramProps> = ({ listInstagramPosts }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button
-              icon={<InstagramOutlined style={{ fontSize: 32 }} />}
-              type="text"
-            />
+            <InstagramOutlined style={{ fontSize: 32, color: '#3c3c3c' }} />
           </a>
         </Space>
       </Section.Title>
