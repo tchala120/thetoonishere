@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3100 next dev",
-    "build": "next build",
+    "build": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@next/bundle-analyzer": "^12.1.5",
     "antd": "^4.20.1",
     "axios": "^0.27.2",
     "dayjs": "^1.11.1",
