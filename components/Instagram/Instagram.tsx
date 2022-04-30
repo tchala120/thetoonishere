@@ -1,24 +1,19 @@
 import type { FC } from 'react'
 
 import { Button, Col, Row, Space } from 'antd'
+import { InstagramOutlined } from '@ant-design/icons'
 
 import Section from 'components/Section'
-import LoadingIcon from 'components/LoadingIcon'
 import NotFoundContent from 'components/NotFoundContent'
 import InstagramPostItem from './InstagramPostItem'
 
-import useRequest from 'hooks/useRequest'
+import type { InstagramAPIResponse } from 'pages/api/list-instagram-posts'
 
-import type { ListInstagramPostsAPIPayload } from 'pages/api/list-instagram-posts'
-import { InstagramOutlined } from '@ant-design/icons'
+interface InstagramProps {
+  listInstagramPosts: InstagramAPIResponse[]
+}
 
-const Instagram: FC = () => {
-  const { loading, response, error } = useRequest<ListInstagramPostsAPIPayload>(
-    '/api/list-instagram-posts'
-  )
-
-  const listInstagramPosts = response?.data.listInstagramPosts || []
-
+const Instagram: FC<InstagramProps> = ({ listInstagramPosts }) => {
   return (
     <Section>
       <Section.Title>
@@ -38,13 +33,13 @@ const Instagram: FC = () => {
       </Section.Title>
 
       <Row gutter={[32, 32]} style={{ marginBottom: 24 }}>
-        {loading ? <LoadingIcon spin /> : renderListInstagramPosts()}
+        {renderListInstagramPosts()}
       </Row>
     </Section>
   )
 
   function renderListInstagramPosts() {
-    if (error || listInstagramPosts.length === 0) {
+    if (listInstagramPosts.length === 0) {
       return (
         <Col span={24}>
           <NotFoundContent title="Cannot display shots right now.">
@@ -60,7 +55,7 @@ const Instagram: FC = () => {
       )
     }
 
-    return response?.data.listInstagramPosts.map((item) => (
+    return listInstagramPosts.map((item) => (
       <Col key={item.id} md={8} sm={12} xs={24}>
         <InstagramPostItem data={item} />
       </Col>
