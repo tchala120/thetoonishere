@@ -1,27 +1,23 @@
 import Head from 'next/head'
-import styled from 'styled-components'
+
+import Content from 'components/Content'
+import Footer from 'components/Footer'
 
 import type { FCWithChildren } from 'types'
 
 const HomeLayout: FCWithChildren = ({ children }) => {
   return (
-    <HomeContainer>
+    <>
       <Head>
-        <title>👋 Hi folk! | thetoonishere</title>
+        <title>👋 Hi! | thetoonishere</title>
         <link rel="shortcut icon" href="/favicon.png" />
       </Head>
-      {children}
-    </HomeContainer>
+
+      <Content>{children}</Content>
+
+      <Footer />
+    </>
   )
 }
 
 export default HomeLayout
-
-const HomeContainer = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
