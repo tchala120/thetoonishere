@@ -73,7 +73,7 @@ const Footer: FC = () => {
 
 export default Footer
 
-const CopyRight = styled.p`
+const CopyRight = styled.div`
   margin: 24px 0;
   color: #8c8c8c;
 `
