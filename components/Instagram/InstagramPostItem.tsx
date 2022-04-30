@@ -12,7 +12,7 @@ const InstagramPostItem: FC<InstagramPostItemProps> = ({ data }) => {
   return (
     <div style={{ overflow: 'hidden' }}>
       <a href={data.permalink} target="_blank" rel="noopener noreferrer">
-        <Image src={data.media_url} alt={data.timestamp} loading="lazy" />
+        <Image src={data.media_url} alt={data.timestamp} />
       </a>
     </div>
   )
