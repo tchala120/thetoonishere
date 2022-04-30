@@ -33,7 +33,7 @@ const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const listInstagramPosts = await getListInstagramPosts()
+  const listInstagramPosts = (await getListInstagramPosts()) || []
 
   return {
     props: {
