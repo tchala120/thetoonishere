@@ -6,6 +6,7 @@ const nextConfig = {
       'scontent-iad3-1.cdninstagram.com',
       'scontent-iad3-2.cdninstagram.com',
       'scontent-bos3-1.cdninstagram.com',
+      'upload.wikimedia.org',
     ],
   },
   reactStrictMode: true,
