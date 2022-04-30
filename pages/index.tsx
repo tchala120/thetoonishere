@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 
 import Image from 'next/image'
 import { Space } from 'antd'
@@ -20,8 +20,6 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
-  console.log('List instagram posts', listInstagramPosts)
-
   return (
     <HomeLayout>
       <Space>
@@ -48,11 +46,10 @@ const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const listInstagramPosts = await getListInstagramPosts()
 
   return {
-    revalidate: 1,
     props: {
       listInstagramPosts,
     },
