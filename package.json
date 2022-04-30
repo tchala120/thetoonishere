@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "PORT=3100 next dev",
-    "build": "ANALYZE=true next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
