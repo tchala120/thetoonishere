@@ -35,7 +35,7 @@ const SectionContainer = styled.div`
   width: 100%;
   margin: 36px 0;
   color: #4a4a4a;
-  font-size: 16px;
+  font-size: 18px;
 `
 
 Section.Title = Title
