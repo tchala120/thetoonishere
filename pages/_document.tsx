@@ -1,28 +1,50 @@
-import type { NextPage } from 'next'
+import Document, { DocumentContext, DocumentInitialProps } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 
-import { Html, Head, Main, NextScript } from 'next/document'
+export default class MyDocument extends Document {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
 
-const Document: NextPage = () => {
-  return (
-    <Html lang="en">
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin=""
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  )
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: [
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>,
+        ],
+        head: [
+          <link
+            key="fonts"
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+          />,
+          <link
+            key="preconnect"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin=""
+          />,
+          <link
+            key="inter-font"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
+            rel="stylesheet"
+          />,
+        ],
+      }
+    } finally {
+      sheet.seal()
+    }
+  }
 }
-
-export default Document
