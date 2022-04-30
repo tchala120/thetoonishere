@@ -24,24 +24,6 @@ export default class MyDocument extends Document {
             {sheet.getStyleElement()}
           </div>,
         ],
-        head: [
-          <link
-            key="fonts"
-            rel="preconnect"
-            href="https://fonts.googleapis.com"
-          />,
-          <link
-            key="preconnect"
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin=""
-          />,
-          <link
-            key="inter-font"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap"
-            rel="stylesheet"
-          />,
-        ],
       }
     } finally {
       sheet.seal()
