@@ -3,7 +3,7 @@ import type { FC } from 'react'
 import NextImage from 'next/image'
 import styled from 'styled-components'
 
-import type { InstagramAPIResponse } from 'pages/api/list-instagram-posts'
+import type { InstagramAPIResponse } from 'helpers/instagram'
 
 interface InstagramPostItemProps {
   data: InstagramAPIResponse

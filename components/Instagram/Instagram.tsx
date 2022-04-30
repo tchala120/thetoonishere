@@ -7,7 +7,7 @@ import Section from 'components/Section'
 import NotFoundContent from 'components/NotFoundContent'
 import InstagramPostItem from './InstagramPostItem'
 
-import type { InstagramAPIResponse } from 'pages/api/list-instagram-posts'
+import type { InstagramAPIResponse } from 'helpers/instagram'
 
 interface InstagramProps {
   listInstagramPosts: InstagramAPIResponse[]
