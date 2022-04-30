@@ -19,10 +19,10 @@ export default class MyDocument extends Document {
       return {
         ...initialProps,
         styles: [
-          <>
+          <div key="style">
             {initialProps.styles}
             {sheet.getStyleElement()}
-          </>,
+          </div>,
         ],
         head: [
           <link
