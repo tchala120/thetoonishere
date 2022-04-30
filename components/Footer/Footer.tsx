@@ -8,7 +8,7 @@ import {
   MediumOutlined,
   TwitterOutlined,
 } from '@ant-design/icons'
-import { Button, Space, Tooltip } from 'antd'
+import { Space, Tooltip } from 'antd'
 import styled from 'styled-components'
 import dayjs from 'dayjs'
 
@@ -56,7 +56,7 @@ const Footer: FC = () => {
         {listSocialContacts.map(({ id, name, link, Icon }) => (
           <Tooltip key={id} title={name}>
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <Button type="text" icon={<Icon style={{ fontSize: 32 }} />} />
+              <Icon style={{ fontSize: 32, color: '#3c3c3c' }} />
             </a>
           </Tooltip>
         ))}
