@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 /** @type {import('next').NextConfig} */
 module.exports = withBundleAnalyzer({
   images: {
-    domains: ['scontent.cdninstagram.com'],
+    domains: ['cdninstagram.com'],
   },
   reactStrictMode: true,
   compiler: {
