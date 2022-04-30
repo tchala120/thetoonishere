@@ -61,7 +61,7 @@ const Instagram: FC = () => {
     }
 
     return response?.data.listInstagramPosts.map((item) => (
-      <Col key={item.id} xs={24} md={8}>
+      <Col key={item.id} md={8} sm={12} xs={24}>
         <InstagramPostItem data={item} />
       </Col>
     ))
