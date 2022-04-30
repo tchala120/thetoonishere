@@ -4,10 +4,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 /** @type {import('next').NextConfig} */
 module.exports = withBundleAnalyzer({
-  swcMinify: true,
   images: {
-    domains: ['scontent.cdninstagram.com', 'panpong.io'],
-    formats: ['image/avif', 'image/webp'],
+    domains: ['scontent.cdninstagram.com'],
   },
   reactStrictMode: true,
   compiler: {
