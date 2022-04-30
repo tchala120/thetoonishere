@@ -52,11 +52,11 @@ const Footer: FC = () => {
 
   return (
     <Container>
-      <Space>
+      <Space size="large">
         {listSocialContacts.map(({ id, name, link, Icon }) => (
           <Tooltip key={id} title={name}>
             <a href={link} target="_blank" rel="noopener noreferrer">
-              <Button type="text" icon={<Icon style={{ fontSize: 24 }} />} />
+              <Button type="text" icon={<Icon style={{ fontSize: 32 }} />} />
             </a>
           </Tooltip>
         ))}
