@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 
 import HomeLayout from 'layouts/HomeLayout'
 
@@ -32,10 +32,11 @@ const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
 
 export default Home
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const listInstagramPosts = await getListInstagramPosts()
 
   return {
+    revalidate: 1,
     props: {
       listInstagramPosts,
     },
