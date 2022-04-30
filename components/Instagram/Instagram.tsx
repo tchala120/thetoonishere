@@ -1,27 +1,19 @@
 import type { FC } from 'react'
 
-import axios from 'axios'
-import useSWR from 'swr'
 import { Col, Row, Space } from 'antd'
 import { InstagramOutlined } from '@ant-design/icons'
 
 import Section from 'components/Section'
 import NotFoundContent from 'components/NotFoundContent'
-import LoadingIcon from 'components/LoadingIcon'
 import InstagramPostItem from './InstagramPostItem'
 
-import type { ListInstagramPostsAPIPayload } from 'pages/api/list-instagram-posts'
+import type { InstagramAPIResponse } from 'pages/api/list-instagram-posts'
 
-const Instagram: FC = () => {
-  const { data, error } = useSWR<{ data: ListInstagramPostsAPIPayload }>(
-    '/api/list-instagram-posts',
-    (key) => axios.get(key)
-  )
+interface InstagramProps {
+  listInstagramPosts: InstagramAPIResponse[]
+}
 
-  const loading = data == null && error == null
-
-  const listInstagramPosts = data?.data.listInstagramPosts || []
-
+const Instagram: FC<InstagramProps> = ({ listInstagramPosts }) => {
   return (
     <Section>
       <Section.Title>
@@ -38,13 +30,13 @@ const Instagram: FC = () => {
       </Section.Title>
 
       <Row gutter={[32, 32]} style={{ marginBottom: 24 }}>
-        {loading ? <LoadingIcon /> : renderListInstagramPosts()}
+        {renderListInstagramPosts()}
       </Row>
     </Section>
   )
 
   function renderListInstagramPosts() {
-    if (error || listInstagramPosts.length === 0) {
+    if (listInstagramPosts.length === 0) {
       return (
         <Col span={24}>
           <NotFoundContent title="Cannot display shots right now.">
