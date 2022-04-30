@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: Inter, sans-serif;
   color: #3c3c3c;
-  background-image: url(/background.jpg);
+  background-image: url(/background.webp);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;

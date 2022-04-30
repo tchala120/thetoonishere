@@ -22,7 +22,7 @@ const HomeLayout: FCWithChildren<HomeLayoutProps> = ({
 
       <Head>
         <title>👋 Hi! | thetoonishere</title>
-        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.webp" />
       </Head>
 
       <Content>{children}</Content>
