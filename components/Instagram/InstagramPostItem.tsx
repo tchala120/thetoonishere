@@ -21,7 +21,7 @@ const InstagramPostItem: FC<InstagramPostItemProps> = ({ data }) => {
 export default InstagramPostItem
 
 const Image = styled.img`
-  max-width: 100%;
+  width: 100%;
   height: 100%;
   object-fit: cover;
   aspect-ratio: 1/1;
