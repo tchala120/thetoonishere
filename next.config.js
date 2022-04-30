@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['scontent.cdninstagram.com', 'scontent-mia3-2.cdninstagram.com'],
+    domains: ['scontent.cdninstagram.com', '*.cdninstagram.com'],
   },
   reactStrictMode: true,
   compiler: {
