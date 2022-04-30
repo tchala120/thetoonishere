@@ -22,7 +22,7 @@ export interface StaticInstagramPost {
 }
 
 const age = 600000 // 10 minutes
-const filePath = path.join(__dirname, '../../../..', '/posts.json')
+const filePath = path.join(__dirname, '../../..', '/posts.json')
 
 export const getListInstagramPosts = async (): Promise<
   InstagramAPIResponse[]
