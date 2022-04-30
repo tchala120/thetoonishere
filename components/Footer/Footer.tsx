@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 
 import {
+  CopyrightOutlined,
   GithubOutlined,
   InstagramOutlined,
   LinkedinOutlined,
@@ -9,6 +10,7 @@ import {
 } from '@ant-design/icons'
 import { Button, Space, Tooltip } from 'antd'
 import styled from 'styled-components'
+import dayjs from 'dayjs'
 
 import Container from 'components/Container'
 
@@ -60,7 +62,11 @@ const Footer: FC = () => {
         ))}
       </Space>
 
-      <CopyRight>Copyright © 2022 Panupong. All rights reserved.</CopyRight>
+      <CopyRight>
+        <Space>
+          <CopyrightOutlined /> {dayjs().format('YYYY')} Panupong
+        </Space>
+      </CopyRight>
     </Container>
   )
 }
