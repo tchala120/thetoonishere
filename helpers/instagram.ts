@@ -2,9 +2,13 @@ import fs from 'fs'
 import axios from 'axios'
 import path from 'path'
 import dayjs from 'dayjs'
+import getConfig from 'next/config'
 
-import staticInstagramPost from 'posts.json'
+const { serverRuntimeConfig } = getConfig()
 
+const pathToFile = path.join(
+  path.join(serverRuntimeConfig.PROJECT_ROOT, '../posts.json')
+)
 export interface InstagramAPIResponse {
   id: string
   media_url: string
@@ -22,11 +26,10 @@ export interface StaticInstagramPost {
 }
 
 const age = 600000 // 10 minutes
-const filePath = path.join(__dirname, '../../../posts.json')
 
 export const getFileData = () => {
   try {
-    return fs.readFileSync(filePath, 'utf-8')
+    return fs.readFileSync(pathToFile, 'utf-8')
   } catch (error) {
     console.log('Error', error)
 
@@ -37,6 +40,11 @@ export const getFileData = () => {
 export const getListInstagramPosts = async (): Promise<
   InstagramAPIResponse[]
 > => {
+  const file = getFileData()
+
+  const staticInstagramPost: StaticInstagramPost | null =
+    file == '' ? null : JSON.parse(file)
+
   if (
     staticInstagramPost != null &&
     dayjs().isBefore(dayjs(staticInstagramPost.createdAt))
@@ -50,7 +58,7 @@ export const getListInstagramPosts = async (): Promise<
     )
     .then(async (resp) => {
       fs.writeFileSync(
-        filePath,
+        pathToFile,
         JSON.stringify({
           data: resp.data.data.slice(0, 9),
           createdAt: Date.now() + age,
@@ -60,7 +68,7 @@ export const getListInstagramPosts = async (): Promise<
         }
       )
 
-      return JSON.parse(fs.readFileSync(filePath, 'utf-8')).data
+      return JSON.parse(fs.readFileSync(pathToFile, 'utf-8')).data
     })
     .catch((error) => error)
 }
