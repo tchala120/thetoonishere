@@ -3,6 +3,8 @@ import axios from 'axios'
 import path from 'path'
 import dayjs from 'dayjs'
 
+import staticInstagramPost from 'posts.json'
+
 export interface InstagramAPIResponse {
   id: string
   media_url: string
@@ -35,11 +37,6 @@ export const getFileData = () => {
 export const getListInstagramPosts = async (): Promise<
   InstagramAPIResponse[]
 > => {
-  const file = getFileData()
-
-  const staticInstagramPost: StaticInstagramPost | null =
-    file == '' ? null : JSON.parse(file)
-
   if (
     staticInstagramPost != null &&
     dayjs().isBefore(dayjs(staticInstagramPost.createdAt))
