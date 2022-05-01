@@ -2,13 +2,8 @@ import fs from 'fs'
 import axios from 'axios'
 import path from 'path'
 import dayjs from 'dayjs'
-import getConfig from 'next/config'
 
-const { serverRuntimeConfig } = getConfig()
-
-const pathToFile = path.join(
-  path.join(serverRuntimeConfig.PROJECT_ROOT, 'posts.json')
-)
+const pathToFile = path.join(process.cwd(), 'posts.json')
 export interface InstagramAPIResponse {
   id: string
   media_url: string

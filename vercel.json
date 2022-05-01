@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "pages/api/list-instagram-posts.ts": {
+      "includeFiles": "posts.json"
+    }
+  }
+}
