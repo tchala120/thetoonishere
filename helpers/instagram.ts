@@ -20,12 +20,14 @@ export interface StaticInstagramPost {
 }
 
 const age = 600000 // 10 minutes
-const filePath = path.join(__dirname, '../../../../posts.json')
+const filePath = path.join(__dirname, '../../../posts.json')
 
 export const getFileData = () => {
   try {
     return fs.readFileSync(filePath, 'utf-8')
-  } catch {
+  } catch (error) {
+    console.log('Error', error)
+
     return ''
   }
 }
