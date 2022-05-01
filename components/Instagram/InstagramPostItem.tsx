@@ -20,6 +20,7 @@ const InstagramPostItem: FC<InstagramPostItemProps> = ({ data }) => {
           height="100%"
           layout="responsive"
           objectFit="cover"
+          loading="lazy"
           placeholder="blur"
           blurDataURL="https://upload.wikimedia.org/wikipedia/commons/7/70/Solid_white.svg"
         />
