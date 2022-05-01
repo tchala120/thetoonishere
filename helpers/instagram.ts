@@ -7,7 +7,7 @@ import getConfig from 'next/config'
 const { serverRuntimeConfig } = getConfig()
 
 const pathToFile = path.join(
-  path.join(serverRuntimeConfig.PROJECT_ROOT, '../posts.json')
+  path.join(serverRuntimeConfig.PROJECT_ROOT, 'posts.json')
 )
 export interface InstagramAPIResponse {
   id: string
