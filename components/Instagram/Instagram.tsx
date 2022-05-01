@@ -52,6 +52,8 @@ const Instagram: FC<InstagramProps> = ({ listInstagramPosts = [] }) => {
       )
     }
 
+    console.log(':listInstagramPosts', listInstagramPosts)
+
     return listInstagramPosts.map((item) => (
       <Col key={item.id} md={8} sm={12} xs={24}>
         <InstagramPostItem data={item} />

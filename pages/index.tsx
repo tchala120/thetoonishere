@@ -10,7 +10,7 @@ import Project from 'components/Project'
 import { getListInstagramPosts, InstagramAPIResponse } from 'helpers/instagram'
 
 interface HomeProps {
-  listInstagramPosts: InstagramAPIResponse[]
+  listInstagramPosts?: InstagramAPIResponse[]
 }
 
 const Home: NextPage<HomeProps> = ({ listInstagramPosts }) => {
@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      listInstagramPosts: listInstagramPosts || [],
+      listInstagramPosts,
     },
   }
 }
