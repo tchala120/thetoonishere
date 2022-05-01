@@ -37,6 +37,10 @@ const SectionContainer = styled.div`
   margin: 36px 0;
   color: #4a4a4a;
   font-size: 18px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `
 
 Section.Title = Title
