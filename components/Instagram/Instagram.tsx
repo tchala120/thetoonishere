@@ -10,10 +10,10 @@ import InstagramPostItem from './InstagramPostItem'
 import type { InstagramAPIResponse } from 'helpers/instagram'
 
 interface InstagramProps {
-  listInstagramPosts: InstagramAPIResponse[]
+  listInstagramPosts?: InstagramAPIResponse[]
 }
 
-const Instagram: FC<InstagramProps> = ({ listInstagramPosts }) => {
+const Instagram: FC<InstagramProps> = ({ listInstagramPosts = [] }) => {
   return (
     <Section>
       <Section.Title>
