@@ -32,13 +32,16 @@ export const getFileData = () => {
   }
 }
 
+export const getStaticInstagramPosts = (): StaticInstagramPost | null => {
+  const file = getFileData()
+
+  return file == '' ? null : JSON.parse(file)
+}
+
 export const getListInstagramPosts = async (): Promise<
   InstagramAPIResponse[]
 > => {
-  const file = getFileData()
-
-  const staticInstagramPost: StaticInstagramPost | null =
-    file == '' ? null : JSON.parse(file)
+  const staticInstagramPost = getStaticInstagramPosts()
 
   if (
     staticInstagramPost != null &&
@@ -63,8 +66,7 @@ export const getListInstagramPosts = async (): Promise<
       //   }
       // )
 
-      // return JSON.parse(fs.readFileSync(pathToFile, 'utf-8')).data
-      return staticInstagramPost?.data
+      return getStaticInstagramPosts()?.data
     })
     .catch((error) => error)
 }
