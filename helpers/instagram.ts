@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 
 import staticInstagramPosts from 'posts.json'
 
-const pathToFile = path.join(process.cwd(), 'posts.json')
+const pathToFile = path.join(__dirname, 'posts.json')
 export interface InstagramAPIResponse {
   id: string
   media_url: string
@@ -23,16 +23,6 @@ export interface StaticInstagramPost {
 }
 
 const age = 600000 // 10 minutes
-
-export const getFileData = () => {
-  try {
-    return fs.readFileSync(pathToFile, 'utf-8')
-  } catch (error) {
-    console.log('Error', error)
-
-    return ''
-  }
-}
 
 export const getListInstagramPosts = async (): Promise<
   InstagramAPIResponse[]
