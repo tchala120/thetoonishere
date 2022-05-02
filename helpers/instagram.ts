@@ -3,9 +3,7 @@ import axios from 'axios'
 import path from 'path'
 import dayjs from 'dayjs'
 
-import staticInstagramPosts from 'posts.json'
-
-const pathToFile = path.join(__dirname, 'posts.json')
+const pathToFile = path.resolve('./posts.json')
 export interface InstagramAPIResponse {
   id: string
   media_url: string
@@ -24,14 +22,29 @@ export interface StaticInstagramPost {
 
 const age = 600000 // 10 minutes
 
+export const getFileData = () => {
+  try {
+    return fs.readFileSync(pathToFile, 'utf-8')
+  } catch (error) {
+    console.log('Error', error)
+
+    return ''
+  }
+}
+
 export const getListInstagramPosts = async (): Promise<
   InstagramAPIResponse[]
 > => {
+  const file = getFileData()
+
+  const staticInstagramPost: StaticInstagramPost | null =
+    file == '' ? null : JSON.parse(file)
+
   if (
-    staticInstagramPosts != null &&
-    dayjs().isBefore(dayjs(staticInstagramPosts.createdAt))
+    staticInstagramPost != null &&
+    dayjs().isBefore(dayjs(staticInstagramPost.createdAt))
   ) {
-    return new Promise((resolve) => resolve(staticInstagramPosts.data))
+    return new Promise((resolve) => resolve(staticInstagramPost.data))
   }
 
   return axios
