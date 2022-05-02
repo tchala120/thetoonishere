@@ -1,10 +1,11 @@
 import Head from 'next/head'
+import Script from 'next/script'
+import { NextSeo } from 'next-seo'
 
 import Content from 'components/Content'
 import Footer from 'components/Footer'
 
 import type { FCWithChildren } from 'types'
-import { NextSeo } from 'next-seo'
 
 interface HomeLayoutProps {
   title?: string

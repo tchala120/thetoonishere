@@ -15,6 +15,7 @@ import dayjs from 'dayjs'
 import Container from 'components/Container'
 
 import type { SocialContact } from './types'
+import { event } from 'helpers/gtag'
 
 const Footer: FC = () => {
   const listSocialContacts: SocialContact[] = [
@@ -55,7 +56,19 @@ const Footer: FC = () => {
       <Space size="large">
         {listSocialContacts.map(({ id, name, link, Icon }) => (
           <Tooltip key={id} title={name}>
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                event({
+                  action: 'socialIconClick',
+                  category: 'Social Icon',
+                  label: `Click ${name}`,
+                  value: id,
+                })
+              }
+            >
               <Icon style={{ fontSize: 32, color: '#3c3c3c' }} />
             </a>
           </Tooltip>

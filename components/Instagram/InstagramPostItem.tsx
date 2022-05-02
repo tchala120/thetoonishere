@@ -4,6 +4,7 @@ import NextImage from 'next/image'
 import styled from 'styled-components'
 
 import type { InstagramAPIResponse } from 'helpers/instagram'
+import { event } from 'helpers/gtag'
 
 interface InstagramPostItemProps {
   data: InstagramAPIResponse
@@ -12,7 +13,18 @@ interface InstagramPostItemProps {
 const InstagramPostItem: FC<InstagramPostItemProps> = ({ data }) => {
   return (
     <div style={{ overflow: 'hidden' }}>
-      <a href={data.permalink} target="_blank" rel="noopener noreferrer">
+      <a
+        href={data.permalink}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() =>
+          event({
+            action: 'instagramPost',
+            category: 'instagramPost',
+            label: `Clicking on ${data.permalink} media`,
+          })
+        }
+      >
         <Image
           src={data.media_url}
           alt={data.timestamp}

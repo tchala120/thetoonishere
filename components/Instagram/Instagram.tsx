@@ -8,6 +8,7 @@ import NotFoundContent from 'components/NotFoundContent'
 import InstagramPostItem from './InstagramPostItem'
 
 import type { InstagramAPIResponse } from 'helpers/instagram'
+import { event } from 'helpers/gtag'
 
 interface InstagramProps {
   listInstagramPosts?: InstagramAPIResponse[]
@@ -23,6 +24,14 @@ const Instagram: FC<InstagramProps> = ({ listInstagramPosts = [] }) => {
             href="https://instagram.com/itstoon.p"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              event({
+                action: 'instagramShot',
+                category: 'instagram',
+                label: 'Click the shot',
+                value: 1,
+              })
+            }
           >
             <InstagramOutlined style={{ fontSize: 32, color: '#3c3c3c' }} />
           </a>
@@ -44,6 +53,14 @@ const Instagram: FC<InstagramProps> = ({ listInstagramPosts = [] }) => {
               href="https://instagram.com/itstoon.p"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                event({
+                  action: 'directlyInstagram',
+                  category: 'error',
+                  label: `Clicking on directly to my instagram link`,
+                  value: 2,
+                })
+              }
             >
               Directly to my instagram!
             </a>
