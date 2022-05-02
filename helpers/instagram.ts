@@ -52,18 +52,19 @@ export const getListInstagramPosts = async (): Promise<
       `https://graph.instagram.com/me/media?fields=id,media_url,permalink,timestamp&access_token=${process.env.INSTAGRAM_TOKEN}`
     )
     .then(async (resp) => {
-      fs.writeFileSync(
-        pathToFile,
-        JSON.stringify({
-          data: resp.data.data.slice(0, 9),
-          createdAt: Date.now() + age,
-        }),
-        {
-          encoding: 'utf-8',
-        }
-      )
+      // fs.writeFileSync(
+      //   pathToFile,
+      //   JSON.stringify({
+      //     data: resp.data.data.slice(0, 9),
+      //     createdAt: Date.now() + age,
+      //   }),
+      //   {
+      //     encoding: 'utf-8',
+      //   }
+      // )
 
-      return JSON.parse(fs.readFileSync(pathToFile, 'utf-8')).data
+      // return JSON.parse(fs.readFileSync(pathToFile, 'utf-8')).data
+      return staticInstagramPost?.data
     })
     .catch((error) => error)
 }
