@@ -34,7 +34,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      listInstagramPosts,
+      listInstagramPosts: Array.isArray(listInstagramPosts)
+        ? listInstagramPosts
+        : [],
     },
   }
 }
