@@ -2,25 +2,12 @@ import '../styles/globals.css'
 
 import type { AppProps } from 'next/app'
 
-import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import { ConfigProvider } from 'antd'
-
-import FullScreenLoading from 'components/FullScreenLoading'
 
 import { trackingID } from 'helpers/gtag'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    setLoading(false)
-  }, [])
-
-  if (loading) {
-    return <FullScreenLoading>Loading...</FullScreenLoading>
-  }
-
   return (
     <ConfigProvider componentSize="large">
       <Script
