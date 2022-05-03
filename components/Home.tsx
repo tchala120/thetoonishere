@@ -1,7 +1,6 @@
-import type { FC } from 'react'
+import type { ComponentType, FC } from 'react'
 
 import {
-  CopyrightOutlined,
   GithubOutlined,
   InstagramOutlined,
   LinkedinOutlined,
@@ -9,15 +8,20 @@ import {
   TwitterOutlined,
 } from '@ant-design/icons'
 import { Space, Tooltip } from 'antd'
-import styled from 'styled-components'
-import dayjs from 'dayjs'
 
-import Container from 'components/Container'
+import Hero from 'components/Hero'
+import About from 'components/About'
 
-import type { SocialContact } from './types'
 import { event } from 'helpers/gtag'
 
-const Footer: FC = () => {
+export interface SocialContact {
+  id: number
+  name: string
+  link: string
+  Icon: ComponentType<any>
+}
+
+const Home: FC = () => {
   const listSocialContacts: SocialContact[] = [
     {
       id: 0,
@@ -52,7 +56,11 @@ const Footer: FC = () => {
   ]
 
   return (
-    <Container>
+    <>
+      <Hero />
+
+      <About />
+
       <Space size="large">
         {listSocialContacts.map(({ id, name, link, Icon }) => (
           <Tooltip key={id} title={name}>
@@ -74,19 +82,8 @@ const Footer: FC = () => {
           </Tooltip>
         ))}
       </Space>
-
-      <CopyRight>
-        <Space>
-          <CopyrightOutlined /> {dayjs().format('YYYY')} Panupong
-        </Space>
-      </CopyRight>
-    </Container>
+    </>
   )
 }
 
-export default Footer
-
-const CopyRight = styled.div`
-  margin: 24px 0;
-  color: #8c8c8c;
-`
+export default Home

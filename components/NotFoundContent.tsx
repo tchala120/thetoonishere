@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import type { FCWithChildren } from 'types'
 
 interface NotFoundContentProps {
@@ -11,7 +12,7 @@ const NotFoundContent: FCWithChildren<NotFoundContentProps> = ({
 }) => {
   return (
     <NotFoundContentContainer>
-      <p>{title}</p>
+      <NotFoundTitle>{title}</NotFoundTitle>
 
       {children}
     </NotFoundContentContainer>
@@ -22,4 +23,12 @@ export default NotFoundContent
 
 const NotFoundContentContainer = styled.div`
   margin: 36px 0;
+  display: grid;
+  place-items: center;
+`
+
+const NotFoundTitle = styled.span`
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 24px;
 `
