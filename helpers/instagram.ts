@@ -22,25 +22,9 @@ export interface StaticInstagramPost {
 
 const age = 600000 // 10 minutes
 
-export const getFileFromPublicDirectory = (fileName: string) => {
-  const dir = path.resolve('./public')
-
-  const filenames = fs.readdirSync(dir)
-
-  return filenames
-    .map((name) => path.join('/', name))
-    .find((item) => item.includes(fileName))
-}
-
-export const getFileData = (fileName: string) => {
+export const getFileData = () => {
   try {
-    const path = getFileFromPublicDirectory(fileName)
-
-    if (path == null) {
-      throw Error
-    }
-
-    return fs.readFileSync(path, 'utf-8')
+    return fs.readFileSync(pathToFile, 'utf-8')
   } catch (error) {
     console.log('Error', error)
 
@@ -49,7 +33,7 @@ export const getFileData = (fileName: string) => {
 }
 
 export const getStaticInstagramPosts = (): StaticInstagramPost | null => {
-  const file = getFileData('posts.json')
+  const file = getFileData()
 
   return file == '' ? null : JSON.parse(file)
 }
@@ -72,7 +56,7 @@ export const getListInstagramPosts = async (): Promise<
     )
     .then(async (resp) => {
       fs.writeFileSync(
-        './public/posts.json',
+        pathToFile,
         JSON.stringify({
           data: resp.data.data.slice(0, 9),
           createdAt: Date.now() + age,

@@ -32,6 +32,8 @@ export default Home
 export const getServerSideProps: GetServerSideProps = async () => {
   const listInstagramPosts = await getListInstagramPosts()
 
+  console.log(listInstagramPosts)
+
   return {
     props: {
       listInstagramPosts: Array.isArray(listInstagramPosts)
