@@ -3,7 +3,7 @@ import axios from 'axios'
 import path from 'path'
 import dayjs from 'dayjs'
 
-const pathToFile = path.resolve('./posts.json')
+const pathToFile = path.resolve('./public/posts.json')
 export interface InstagramAPIResponse {
   id: string
   media_url: string
@@ -22,9 +22,25 @@ export interface StaticInstagramPost {
 
 const age = 600000 // 10 minutes
 
-export const getFileData = () => {
+export const getFileFromPublicDirectory = (fileName: string) => {
+  const dir = path.resolve('./public')
+
+  const filenames = fs.readdirSync(dir)
+
+  return filenames
+    .map((name) => path.join('/', name))
+    .find((item) => item.includes(fileName))
+}
+
+export const getFileData = (fileName: string) => {
   try {
-    return fs.readFileSync(pathToFile, 'utf-8')
+    const path = getFileFromPublicDirectory(fileName)
+
+    if (path == null) {
+      return ''
+    }
+
+    return fs.readFileSync(path, 'utf-8')
   } catch (error) {
     console.log('Error', error)
 
@@ -33,7 +49,7 @@ export const getFileData = () => {
 }
 
 export const getStaticInstagramPosts = (): StaticInstagramPost | null => {
-  const file = getFileData()
+  const file = getFileData('posts.json')
 
   return file == '' ? null : JSON.parse(file)
 }
@@ -56,7 +72,7 @@ export const getListInstagramPosts = async (): Promise<
     )
     .then(async (resp) => {
       fs.writeFileSync(
-        pathToFile,
+        './public/posts.json',
         JSON.stringify({
           data: resp.data.data.slice(0, 9),
           createdAt: Date.now() + age,
