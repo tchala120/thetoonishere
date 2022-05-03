@@ -37,7 +37,7 @@ export const getFileData = (fileName: string) => {
     const path = getFileFromPublicDirectory(fileName)
 
     if (path == null) {
-      return ''
+      throw Error
     }
 
     return fs.readFileSync(path, 'utf-8')
