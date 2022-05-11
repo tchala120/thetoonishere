@@ -2,13 +2,13 @@ import styled from '@emotion/styled'
 
 import type { FCWithChildren } from 'types'
 
-const NotFoundLayout: FCWithChildren = ({ children }) => {
-  return <NotFoundLayoutContainer>{children}</NotFoundLayoutContainer>
+const ErrorLayout: FCWithChildren = ({ children }) => {
+  return <ErrorLayoutContainer>{children}</ErrorLayoutContainer>
 }
 
-export default NotFoundLayout
+export default ErrorLayout
 
-const NotFoundLayoutContainer = styled.div`
+const ErrorLayoutContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
