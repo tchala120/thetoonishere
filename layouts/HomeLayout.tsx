@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Footer from 'components/Footer'
 

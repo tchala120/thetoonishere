@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import type { FCWithChildren } from 'types'
 
