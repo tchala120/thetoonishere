@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
-
 import HomeLayout from 'layouts/HomeLayout'
 
 import Home from 'components/Home'
 
-const HomePage: NextPage = () => {
+import type { NextPageWithLayout } from 'types'
+
+const HomePage: NextPageWithLayout = () => {
   return (
     <HomeLayout>
       <Home />
@@ -13,3 +13,7 @@ const HomePage: NextPage = () => {
 }
 
 export default HomePage
+
+HomePage.withLayout = (page) => {
+  return <HomeLayout>{page}</HomeLayout>
+}
