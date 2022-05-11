@@ -1,4 +1,5 @@
-import styled, { keyframes } from '@emotion/styled'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/react'
 
 const wave = keyframes`
   0% { transform: rotate( 0.0deg) }
