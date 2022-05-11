@@ -1,13 +1,15 @@
 import '../styles/globals.css'
 
-import type { AppProps } from 'next/app'
-
 import Script from 'next/script'
 import { ConfigProvider } from 'antd'
 
 import { trackingID } from 'helpers/gtag'
 
-function MyApp({ Component, pageProps }: AppProps) {
+import type { AppPropsWithLayout } from 'types'
+
+function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  const withLayout = Component.withLayout ?? ((page) => page)
+
   return (
     <ConfigProvider componentSize="large">
       <Script
@@ -24,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
 
-      <Component {...pageProps} />
+      {withLayout(<Component {...pageProps} />)}
     </ConfigProvider>
   )
 }
