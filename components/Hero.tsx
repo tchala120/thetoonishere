@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 
 import { Space } from 'antd'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import Section from 'components/Section'
 import WaveAnimation from 'components/WaveAnimation'
