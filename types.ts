@@ -11,3 +11,8 @@ export type AppPropsWithLayout = AppProps & {
 }
 
 export type FCWithChildren<P = {}> = FC<PropsWithChildren<P>>
+
+export interface BaseLayoutProps {
+  title?: string
+  description?: string
+}
