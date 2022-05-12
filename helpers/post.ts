@@ -33,8 +33,8 @@ export const getPostByKey = (
   fileName: string,
   fields: PostFields = []
 ): Post => {
-  const key = fileName.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${key}.md`)
+  const key = fileName.replace(/\.mdx$/, '')
+  const fullPath = join(postsDirectory, `${key}.mdx`)
   const fileContents = fs.readFileSync(fullPath, 'utf-8')
 
   const { data, content } = matter(fileContents)
