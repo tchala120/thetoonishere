@@ -3,6 +3,8 @@ import '../styles/globals.css'
 import Script from 'next/script'
 import { ConfigProvider } from 'antd'
 
+import GtagPageView from 'components/GtagPageView'
+
 import { trackingID } from 'helpers/gtag'
 
 import type { AppPropsWithLayout } from 'types'
@@ -26,7 +28,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         `}
       </Script>
 
-      {withLayout(<Component {...pageProps} />)}
+      <GtagPageView>{withLayout(<Component {...pageProps} />)}</GtagPageView>
     </ConfigProvider>
   )
 }
