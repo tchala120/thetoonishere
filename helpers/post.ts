@@ -61,5 +61,7 @@ export const getPostByKey = (
 export const getAllPosts = (fields: PostFields = []) => {
   const listPostFileNames = getPostFileNames()
 
-  return listPostFileNames.map((fileName) => getPostByKey(fileName, fields))
+  return listPostFileNames
+    .map((fileName) => getPostByKey(fileName, fields))
+    .sort((a, b) => a.date - b.date)
 }
