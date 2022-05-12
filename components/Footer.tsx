@@ -5,9 +5,13 @@ import { Space } from 'antd'
 import dayjs from 'dayjs'
 import styled from '@emotion/styled'
 
+import SocialContact from 'components/SocialContact'
+
 const Footer: FC = () => {
   return (
     <>
+      <SocialContact />
+
       <Space>
         <CopyrightOutlined /> {dayjs().format('YYYY')} Panupong.
       </Space>
