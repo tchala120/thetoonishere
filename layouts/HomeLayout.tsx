@@ -4,14 +4,9 @@ import styled from '@emotion/styled'
 
 import Footer from 'components/Footer'
 
-import type { FCWithChildren } from 'types'
+import type { BaseLayoutProps, FCWithChildren } from 'types'
 
-interface HomeLayoutProps {
-  title?: string
-  description?: string
-}
-
-const HomeLayout: FCWithChildren<HomeLayoutProps> = ({
+const HomeLayout: FCWithChildren<BaseLayoutProps> = ({
   title = 'Hi! | thetoonishere',
   description = "Toon's personal website",
   children,
