@@ -1,11 +1,18 @@
 import HomeLayout from 'layouts/HomeLayout'
 
-import Home from 'components/Home'
+import Hero from 'components/Hero'
+import About from 'components/About'
 
 import type { NextPageWithLayout } from 'types'
 
 const HomePage: NextPageWithLayout = () => {
-  return <Home />
+  return (
+    <>
+      <Hero />
+
+      <About />
+    </>
+  )
 }
 
 export default HomePage
