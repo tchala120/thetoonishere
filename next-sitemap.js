@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
-const nextSitemapConfig = {
-  siteUrl: 'https://panupong.io',
-}
 
-module.exports = nextSitemapConfig
+module.exports = {
+  siteUrl: process.env.SITE_MAP_URL,
+  generateRobotsTxt: true,
+}
