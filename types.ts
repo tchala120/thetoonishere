@@ -1,14 +1,4 @@
-import type { NextPage } from 'next'
-import type { AppProps } from 'next/app'
-import type { FC, PropsWithChildren, ReactElement, ReactNode } from 'react'
-
-export type NextPageWithLayout<P = {}> = NextPage<P> & {
-  withLayout?: (page: ReactElement) => ReactNode
-}
-
-export type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
+import type { FC, PropsWithChildren } from 'react'
 
 export type FCWithChildren<P = {}> = FC<PropsWithChildren<P>>
 
