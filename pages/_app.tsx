@@ -1,3 +1,5 @@
+import type { AppProps } from 'next/app'
+
 import '../styles/globals.css'
 
 import Script from 'next/script'
@@ -7,11 +9,7 @@ import GtagPageView from 'components/GtagPageView'
 
 import { trackingID } from 'helpers/gtag'
 
-import type { AppPropsWithLayout } from 'types'
-
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const withLayout = Component.withLayout ?? ((page) => page)
-
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ConfigProvider componentSize="large">
       <Script
@@ -28,7 +26,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         `}
       </Script>
 
-      <GtagPageView>{withLayout(<Component {...pageProps} />)}</GtagPageView>
+      <GtagPageView>
+        <Component {...pageProps} />
+      </GtagPageView>
     </ConfigProvider>
   )
 }
