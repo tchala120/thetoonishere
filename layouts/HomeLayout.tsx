@@ -25,7 +25,7 @@ const HomeLayout: FCWithChildren<HomeLayoutProps> = ({
         <link rel="shortcut icon" href="/favicon.webp" />
       </Head>
 
-      <ContentContainer>{children}</ContentContainer>
+      {children}
 
       <Footer />
     </HomeLayoutContainer>
@@ -36,7 +36,7 @@ export default HomeLayout
 
 const HomeLayoutContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 768px;
   text-align: center;
   padding: 50px;
@@ -49,8 +49,4 @@ const HomeLayoutContainer = styled.div`
   @media screen and (max-width: 768px) {
     padding: 24px;
   }
-`
-
-const ContentContainer = styled.div`
-  margin-bottom: 52px;
 `
