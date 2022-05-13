@@ -4,6 +4,8 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import { Blog } from 'helpers/blog'
 
+import { H1 } from './MDX'
+
 import PageLayout from 'layouts/PageLayout'
 
 interface BlogDetailProps {
@@ -14,7 +16,12 @@ interface BlogDetailProps {
 const BlogDetail: FC<BlogDetailProps> = ({ blog, source }) => {
   return (
     <PageLayout title={blog.title} description={blog.excerpt}>
-      <MDXRemote {...source} />
+      <MDXRemote
+        {...source}
+        components={{
+          h1: (props) => <H1 {...props} />,
+        }}
+      />
     </PageLayout>
   )
 }
