@@ -1,8 +1,11 @@
 import type { GetStaticProps, NextPage } from 'next'
 
+import Link from 'next/link'
 import { Col, Row } from 'antd'
 
 import PageLayout from 'layouts/PageLayout'
+
+import BlogCard from 'components/BlogCard'
 
 import { getAllBlogs, Blog } from 'helpers/blog'
 
@@ -16,13 +19,13 @@ const BlogPage: NextPage<BlogPageProps> = ({ blogs }) => {
       title="Blog | thetoonishere"
       description="Technical, lifestyle and more."
     >
-      <Row>
-        {blogs.map((blog) => (
-          <Col key={blog.slug} span={24}>
-            <h1>{blog.title}</h1>
-          </Col>
-        ))}
-      </Row>
+      {blogs.map((blog) => (
+        <Link key={blog.slug} href={`/blogs/${blog.slug}`}>
+          <a>
+            <BlogCard blog={blog} />
+          </a>
+        </Link>
+      ))}
     </PageLayout>
   )
 }
