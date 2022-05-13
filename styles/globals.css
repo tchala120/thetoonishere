@@ -9,3 +9,12 @@ body {
   color: #3c3c3c;
   background: #dbd7d3;
 }
+
+a {
+  text-decoration: none;
+  color: #3c3c3c;
+}
+
+a:hover {
+  color: #525252;
+}
