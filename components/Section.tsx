@@ -34,7 +34,7 @@ const SubTitle = styled.span`
 const SectionContainer = styled.div`
   display: inline-block;
   width: 100%;
-  margin: 36px 0;
+  margin-bottom: 36px;
   color: #4a4a4a;
   font-size: 18px;
 
