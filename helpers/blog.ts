@@ -35,7 +35,10 @@ export const getBlogSlug = (fullPath: string) => {
 
 export const getBlogContentBySlug = (fullPath: string): Blog => {
   const slug = getBlogSlug(fullPath)
-  const fileContent = fs.readFileSync(fullPath, 'utf8')
+  const fileContent = fs.readFileSync(
+    join(blogsDirectory, `${slug}.mdx`),
+    'utf8'
+  )
   const { data, content } = matter(fileContent)
 
   const blog: Blog = {
