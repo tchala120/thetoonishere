@@ -19,7 +19,7 @@ const HomePage: NextPage = () => {
       <Section>
         <Link href="/blogs">
           <a>
-            <Button type="link">Go to Blogs</Button>
+            <Button type="primary">Go to Blogs</Button>
           </a>
         </Link>
       </Section>
