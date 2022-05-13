@@ -16,6 +16,7 @@ const pluginAntdLess = withAntdLess({
   modifyVars: {
     '@primary-color': '#2F4858',
     '@link-color': '#2F4858',
+    '@border-radius-base': '6px',
   },
 })
 
