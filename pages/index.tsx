@@ -1,13 +1,11 @@
 import type { NextPage } from 'next'
 
-import { Button } from 'antd'
-import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
-import HomeLayout from 'layouts/HomeLayout'
-
-import Hero from 'components/Hero'
-import About from 'components/About'
-import Section from 'components/Section'
+const HomeLayout = dynamic(() => import('layouts/HomeLayout'))
+const Hero = dynamic(() => import('components/Hero'))
+const About = dynamic(() => import('components/About'))
+const GoToBlogsButton = dynamic(() => import('components/GoToBlogsButton'))
 
 const HomePage: NextPage = () => {
   return (
@@ -16,13 +14,7 @@ const HomePage: NextPage = () => {
 
       <About />
 
-      <Section>
-        <Link href="/blogs">
-          <a>
-            <Button type="primary">Go to Blogs</Button>
-          </a>
-        </Link>
-      </Section>
+      <GoToBlogsButton />
     </HomeLayout>
   )
 }

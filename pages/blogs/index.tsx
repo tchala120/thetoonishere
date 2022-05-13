@@ -1,33 +1,17 @@
 import type { GetStaticProps, NextPage } from 'next'
 
-import Link from 'next/link'
-import { Col, Row } from 'antd'
-
-import PageLayout from 'layouts/PageLayout'
-
-import BlogCard from 'components/BlogCard'
+import dynamic from 'next/dynamic'
 
 import { getAllBlogs, Blog } from 'helpers/blog'
+
+const Blogs = dynamic(() => import('components/Blogs'))
 
 interface BlogPageProps {
   blogs: Blog[]
 }
 
 const BlogPage: NextPage<BlogPageProps> = ({ blogs }) => {
-  return (
-    <PageLayout
-      title="Blog | thetoonishere"
-      description="Technical, lifestyle and more."
-    >
-      {blogs.map((blog) => (
-        <Link key={blog.slug} href={`/blogs/${blog.slug}`}>
-          <a>
-            <BlogCard blog={blog} />
-          </a>
-        </Link>
-      ))}
-    </PageLayout>
-  )
+  return <Blogs blogs={blogs} />
 }
 
 export default BlogPage

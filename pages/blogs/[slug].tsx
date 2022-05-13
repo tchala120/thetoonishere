@@ -1,12 +1,13 @@
 import type { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
 import { ParsedUrlQuery } from 'querystring'
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
-
-import PageLayout from 'layouts/PageLayout'
+import dynamic from 'next/dynamic'
 
 import { Blog, getAllBlogs, getBlogContentBySlug } from 'helpers/blog'
+
+const BlogDetail = dynamic(() => import('components/BlogDetail'))
 
 interface BlogDetailPageProps {
   blog: Blog
@@ -14,11 +15,7 @@ interface BlogDetailPageProps {
 }
 
 const BlogDetailPage: NextPage<BlogDetailPageProps> = ({ blog, source }) => {
-  return (
-    <PageLayout title={blog.title} description={blog.excerpt}>
-      <MDXRemote {...source} />
-    </PageLayout>
-  )
+  return <BlogDetail blog={blog} source={source} />
 }
 
 export default BlogDetailPage
