@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins')
 const withAntdLess = require('next-plugin-antd-less')
+const withBundleAnalyzer = require('@next/bundle-analyzer')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -20,6 +21,10 @@ const pluginAntdLess = withAntdLess({
   },
 })
 
-module.exports = withPlugins([[pluginAntdLess]], {
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+module.exports = withPlugins([pluginAntdLess, bundleAnalyzer], {
   nextConfig,
 })
