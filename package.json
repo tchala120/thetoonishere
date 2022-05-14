@@ -36,6 +36,7 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-highlight": "^5.0.2",
     "rehype-slug": "^5.0.1",
+    "rss-to-json": "^2.0.2",
     "sharp": "^0.30.4"
   },
   "devDependencies": {
