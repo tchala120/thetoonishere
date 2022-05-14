@@ -23,7 +23,6 @@ const SocialContact: FC = () => {
                   action: 'socialIconClick',
                   category: 'Social Icon',
                   label: `Click ${name}`,
-                  value: id,
                 })
               }
             >

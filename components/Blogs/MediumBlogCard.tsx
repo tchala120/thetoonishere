@@ -6,6 +6,7 @@ import Section from 'components/Section'
 import BlogHeader from 'components/BlogHeader'
 
 import { MediumBlog } from 'helpers/utils'
+import { event } from 'helpers/gtag'
 
 interface MediumBlogCardProps {
   data: MediumBlog
@@ -13,7 +14,18 @@ interface MediumBlogCardProps {
 
 const MediumBlogCard: FC<MediumBlogCardProps> = ({ data }) => {
   return (
-    <a href={data.link} target="_blank" rel="noopener noreferrer">
+    <a
+      href={data.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() =>
+        event({
+          action: 'mediumBlogClick',
+          category: 'medium',
+          label: data.title,
+        })
+      }
+    >
       <Section>
         <BlogHeader date={data.created} content={data.content} />
 
