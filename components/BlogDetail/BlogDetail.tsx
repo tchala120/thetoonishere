@@ -4,7 +4,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 import { Blog } from 'helpers/blog'
 
-import { H1 } from './MDX'
+import { H1 } from 'components/MDX'
 
 import PageLayout from 'layouts/PageLayout'
 

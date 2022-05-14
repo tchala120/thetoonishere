@@ -2,12 +2,12 @@ import type { FC } from 'react'
 
 import Link from 'next/link'
 
-import BlogCard from 'components/BlogCard'
+import NotFoundContent from 'components/NotFoundContent'
+import BlogCard from './BlogCard'
 
 import PageLayout from 'layouts/PageLayout'
 
 import type { Blog } from 'helpers/blog'
-import NotFoundContent from './NotFoundContent'
 
 interface BlogsProps {
   blogs: Blog[]
