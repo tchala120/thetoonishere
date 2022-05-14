@@ -20,7 +20,7 @@ const SocialContact: FC = () => {
               rel="noopener noreferrer"
               onClick={() =>
                 event({
-                  action: 'socialIconClick',
+                  action: 'social',
                   category: 'Social Icon',
                   label: `Click ${name}`,
                 })

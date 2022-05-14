@@ -20,7 +20,7 @@ const MediumBlogCard: FC<MediumBlogCardProps> = ({ data }) => {
       rel="noopener noreferrer"
       onClick={() =>
         event({
-          action: 'mediumBlogClick',
+          action: 'medium_blog',
           category: 'medium',
           label: data.title,
         })
