@@ -18,6 +18,10 @@ const pluginAntdLess = withAntdLess({
     '@primary-color': '#2F4858',
     '@link-color': '#2F4858',
     '@border-radius-base': '6px',
+    '@font-size-base': '16px',
+    '@text-color': '#3c3c3c',
+    '@heading-color': '#3c3c3c',
+    '@body-background': '#f1f1f1',
   },
 })
 
