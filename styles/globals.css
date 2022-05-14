@@ -17,3 +17,21 @@ a {
 a:hover {
   color: #525252;
 }
+
+.blog-title {
+  display: block;
+  font-size: 32px;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #3c3c3c;
+}
+
+.blog-description {
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .blog-title {
+    font-size: 28px;
+  }
+}
