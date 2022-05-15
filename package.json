@@ -1,7 +1,7 @@
 {
   "name": "toon-site",
   "description": "Toon's personal website",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "dev": "PORT=3100 NEXT_PUBLIC_VERSION=$npm_package_version next dev",
