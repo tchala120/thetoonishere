@@ -12,18 +12,20 @@ import useBreadcrumbs from 'hooks/useBreadcrumbs'
 import type { BaseLayoutProps, FCWithChildren } from 'types'
 
 const PageLayout: FCWithChildren<BaseLayoutProps> = ({
-  title = '👋 Hi! | thetoonishere',
-  description = "Toon's personal website",
+  title = '👋 Hi!',
+  description = "My name is Toon, and here is my portfolio, which showcases everything I've done in my spare time. My ambition is to work as a website developer since I enjoy coding.",
   children,
 }) => {
   const routes = useBreadcrumbs()
 
+  const seoTitle = `${title} | thetoonishere`
+
   return (
     <PageLayoutContainer>
-      <NextSeo title={title} description={description} />
+      <NextSeo title={seoTitle} description={description} />
 
       <Head>
-        <title>{title}</title>
+        <title>{seoTitle}</title>
 
         <meta name="description" content={description} />
 

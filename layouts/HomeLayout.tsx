@@ -12,12 +12,17 @@ const HomeLayout: FCWithChildren<BaseLayoutProps> = ({
   footer = true,
   children,
 }) => {
+  const seoTitle = `${title} | thetoonishere`
+
   return (
     <HomeLayoutContainer>
-      <NextSeo title={`${title} | thetoonishere`} description={description} />
+      <NextSeo title={seoTitle} description={description} />
 
       <Head>
-        <title>{`${title} | thetoonishere`}</title>
+        <title>{seoTitle}</title>
+
+        <meta name="description" content={description} />
+
         <link rel="shortcut icon" href="/favicon.webp" />
       </Head>
 
