@@ -7,22 +7,23 @@ import Footer from 'components/Footer'
 import type { BaseLayoutProps, FCWithChildren } from 'types'
 
 const HomeLayout: FCWithChildren<BaseLayoutProps> = ({
-  title = 'Hi! | thetoonishere',
+  title = 'Hi!',
   description = "Toon's personal website",
+  footer = true,
   children,
 }) => {
   return (
     <HomeLayoutContainer>
-      <NextSeo title={title} description={description} />
+      <NextSeo title={`${title} | thetoonishere`} description={description} />
 
       <Head>
-        <title>👋 Hi! | thetoonishere</title>
+        <title>{`${title} | thetoonishere`}</title>
         <link rel="shortcut icon" href="/favicon.webp" />
       </Head>
 
       {children}
 
-      <Footer />
+      {footer && <Footer />}
     </HomeLayoutContainer>
   )
 }
