@@ -42,8 +42,8 @@ export const listSocialContacts: SocialContact[] = [
   },
   {
     id: 4,
-    name: '@itstoon.panupong',
-    link: 'https://medium.com/@itstoon.panupong',
+    name: '@thetoonishere',
+    link: 'https://medium.com/@thetoonishere',
     Icon: MediumOutlined,
   },
 ]
