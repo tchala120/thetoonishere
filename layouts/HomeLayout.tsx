@@ -8,7 +8,7 @@ import type { BaseLayoutProps, FCWithChildren } from 'types'
 
 const HomeLayout: FCWithChildren<BaseLayoutProps> = ({
   title = 'Hi!',
-  description = "Toon's personal website",
+  description = "My name is Toon, and here is my portfolio, which showcases everything I've done in my spare time. My ambition is to work as a website developer since I enjoy coding.",
   footer = true,
   children,
 }) => {
