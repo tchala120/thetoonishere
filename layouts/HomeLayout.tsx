@@ -4,11 +4,13 @@ import styled from '@emotion/styled'
 
 import Footer from 'components/Footer'
 
+import { meta } from 'constants/meta'
+
 import type { BaseLayoutProps, FCWithChildren } from 'types'
 
 const HomeLayout: FCWithChildren<BaseLayoutProps> = ({
-  title = 'Hi!',
-  description = "My name is Toon, and here is my portfolio, which showcases everything I've done in my spare time. My ambition is to work as a website developer since I enjoy coding.",
+  title = meta.title,
+  description = meta.description,
   footer = true,
   children,
 }) => {

@@ -9,6 +9,7 @@ import GtagPageView from 'components/GtagPageView'
 
 import { trackingID } from 'helpers/gtag'
 import { DefaultSeo } from 'next-seo'
+import { meta } from 'constants/meta'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -28,22 +29,21 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Script>
 
       <DefaultSeo
-        title="👋 Hi! | thetoonishere"
-        description="My name is Toon, and here is my portfolio, which showcases everything I've done in my spare time. My ambition is to work as a website developer since I enjoy coding."
+        title={meta.title}
+        description={meta.description}
         openGraph={{
           type: 'website',
           locale: 'en_TH',
           url: 'https://panupong.io',
-          title: '👋 Hi! | thetoonishere',
-          description:
-            "My name is Toon, and here is my portfolio, which showcases everything I've done in my spare time. My ambition is to work as a website developer since I enjoy coding.",
+          title: meta.title,
+          description: meta.description,
           site_name: 'Panupong Tipjoi',
           images: [
             {
-              url: 'https://panupong.io/favicon.webp',
-              alt: "Toon's personal website",
-              width: 1024,
-              height: 1024,
+              url: 'https://panupong.io/og-image.webp',
+              alt: meta.description,
+              width: 800,
+              height: 600,
             },
           ],
         }}
