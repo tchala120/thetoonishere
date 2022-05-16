@@ -31,7 +31,7 @@ const MediumBlogCard: FC<MediumBlogCardProps> = ({ data }) => {
           <span className="blog-title">{data.title}</span>
           <p className="blog-description">{data.description}</p>
 
-          <Space>
+          <Space wrap>
             {data.category.map((item) => (
               <Tag color="purple" key={item}>
                 {item}
