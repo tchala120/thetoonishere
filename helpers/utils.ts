@@ -2,6 +2,8 @@ import readingTime from 'reading-time'
 import parse from 'rss-to-json'
 import { paramCase } from 'change-case'
 
+export const isProduction = process.env.VERCEL_ENV === 'production'
+
 export interface MediumBlog {
   slug: string
   title: string
