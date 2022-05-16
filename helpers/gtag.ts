@@ -1,5 +1,3 @@
-import { isProduction } from './utils'
-
 export const trackingID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 interface GtagEvent {
@@ -11,7 +9,7 @@ interface GtagEvent {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
-  if (window.gtag == null || trackingID == null || !isProduction) {
+  if (window.gtag == null || trackingID == null) {
     return
   }
 
@@ -22,7 +20,7 @@ export const pageview = (url: string) => {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/events
 export const event = (event: GtagEvent) => {
-  if (window.gtag == null || !isProduction) {
+  if (window.gtag == null) {
     return
   }
 
