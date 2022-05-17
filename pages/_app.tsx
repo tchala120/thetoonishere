@@ -3,12 +3,12 @@ import type { AppProps } from 'next/app'
 import '../styles/globals.css'
 
 import Script from 'next/script'
+import { DefaultSeo } from 'next-seo'
 import { ConfigProvider } from 'antd'
 
 import GtagPageView from 'components/GtagPageView'
 
 import { trackingID } from 'helpers/gtag'
-import { DefaultSeo } from 'next-seo'
 import { meta } from 'constants/meta'
 
 function MyApp({ Component, pageProps }: AppProps) {
